@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 class clienteController extends Controller
 {
     public function index(){
-        return view("cliente.index");
+        $data['paises'] = [];
+        $data['departamentos'] = [];
+        $data['ciudades'] = [];
+        return view('cliente.index')->with('data', $data);
     }
 }
