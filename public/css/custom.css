@@ -1,0 +1,11 @@
+table > thead{
+    font-size: 14px !important;
+}
+table > tbody{
+    font-size: 12px !important;
+}
+
+.ctm-btn-td{
+    width: 10%;
+    text-align: center;
+}
