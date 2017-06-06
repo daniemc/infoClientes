@@ -28,6 +28,17 @@ class clienteController extends Controller
             'cupo' => $form->cupo,
         ]);
 
+        return $this->redirectToIndex();
+    }
+
+    public function destroy($id)
+    {
+        $cliente = clientes::destroy($id);        
+        return $this->redirectToIndex();
+    }
+
+    protected function redirectToIndex()
+    {
         return redirect()->route('cliente.index');
     }
 

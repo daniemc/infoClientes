@@ -165,9 +165,13 @@
                                 <a class="btn btn-info btn-xs" href="#">
                                     <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
                                 </a>
-                                <a class="btn btn-danger btn-xs" href="#">
-                                    <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-                                </a>  
+                                <form action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}" method="POST" >  
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}                              
+                                    <button type="submit" class="btn btn-danger btn-xs">
+                                        <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                                    </button>  
+                                </form>
                                                          
                             </td>
                         </tr>
