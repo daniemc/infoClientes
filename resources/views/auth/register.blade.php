@@ -64,7 +64,7 @@
                             <label for="vendedor" class="col-md-4 control-label">Vendedor</label>
 
                             <div class="col-md-6">
-                                <input id="vendedor" type="checkbox" class="form-control" name="vendedor" required>
+                                <input id="vendedor" type="checkbox" class="form-control" name="vendedor">
                             </div>
                         </div>
 
