@@ -142,7 +142,7 @@
                             <th class="center">Dirección</th>
                             <th class="center">Teléfono</th>
                             <th class="center">País</th>
-                            <th class="center">Departamento</th>
+                            <th class="center">Depto</th>
                             <th class="center">Ciudad</th>
                             <th class="center">Cupo inicial</th>
                             <th class="center">Cupo restante</th>
