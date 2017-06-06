@@ -6,12 +6,12 @@
         <div class="col-sm-4">
             <form class="form-horizontal" role="form" method="POST" action="{{ route('cliente.store') }}">
                 {{ csrf_field() }}
-
+                {{ method_field('PUT') }}  
                 <div class="form-group{{ $errors->has('nit') ? ' has-error' : '' }}">
                     <label for="nit" class="col-md-4 control-label">Nit</label>
 
                     <div class="col-md-6">
-                        <input id="nit" type="text" class="form-control" name="nit" value="{{ old('nit') }}" required autofocus> 
+                        <input id="nit" type="text" class="form-control" name="nit" value="{{ $cliente->nit }}"  > 
                         @if ($errors->has('nit'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('nit') }}</strong>
@@ -24,7 +24,7 @@
                     <label for="nombre" class="col-md-4 control-label">Nombre Completo</label>
 
                     <div class="col-md-6">
-                        <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required > 
+                        <input id="nombre" type="text" class="form-control" name="nombre" value="{{ $cliente->nombre }}" required autofocus> 
                         @if ($errors->has('nombre'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('nombre') }}</strong>
@@ -37,7 +37,7 @@
                     <label for="direccion" class="col-md-4 control-label">Dirección</label>
 
                     <div class="col-md-6">
-                        <input id="direccion" type="text" class="form-control" name="direccion" value="{{ old('direccion') }}" required > 
+                        <input id="direccion" type="text" class="form-control" name="direccion" value="{{ $cliente->direccion }}" required > 
                         @if ($errors->has('direccion'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('direccion') }}</strong>
@@ -50,7 +50,7 @@
                     <label for="telefono" class="col-md-4 control-label">Teléfono</label>
 
                     <div class="col-md-6">
-                        <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" required > 
+                        <input id="telefono" type="text" class="form-control" name="telefono" value="{{ $cliente->telefono }}" required > 
                         @if ($errors->has('telefono'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('telefono') }}</strong>
@@ -63,10 +63,10 @@
                     <label for="pais" class="col-md-4 control-label">País</label>
 
                     <div class="col-md-6">
-                        <select id="pais" name="pais" data-url="{{ url('departamentos') }}"> 
-                            <option value=""></option>
-                            @forelse($data['paises'] as $pais)
-                            <option value="{{$pais->id}}">{{$pais->nombre}}</option>
+                        <select id="pais" name="pais" data-url="{{ url('departamentos') }}">
+                            
+                            @forelse($paises as $pais)
+                            <option value="{{$pais->id}}" {{ $pais->id == $pais_actual ? ' selected' : '' }} >{{$pais->nombre}}</option>
                             @empty
                             @endforelse
                         </select>
@@ -83,8 +83,10 @@
 
                     <div class="col-md-6">
                         <select id="departamento" name="departamento" data-url="{{ url('ciudades') }}">
-                            <option value=""></option>                       
-                            
+                             @forelse($departamentos as $departamento)
+                                <option value="{{$departamento->id}}" {{ $departamento->id == $departamento_actual ? ' selected' : '' }} >{{$departamento->nombre}}</option>
+                             @empty
+                             @endforelse                                                 
                         </select>
                         @if ($errors->has('departamento'))
                             <span class="help-block">
@@ -99,7 +101,10 @@
 
                     <div class="col-md-6">
                         <select id="ciudad" name="ciudad">
-                            <option value=""></option>
+                            @forelse($ciudades as $ciudad)
+                                <option value="{{$ciudad->id}}" {{ $ciudad->id == $ciudad_actual ? ' selected' : '' }} >{{$ciudad->nombre}}</option>
+                             @empty
+                             @endforelse  
                             
                         </select>
                         @if ($errors->has('ciudad'))
@@ -114,7 +119,7 @@
                     <label for="cupo" class="col-md-4 control-label">Cupo inicial</label>
 
                     <div class="col-md-6">
-                        <input id="cupo" type="text" class="form-control" name="cupo" value="{{ old('cupo') }}" required > 
+                        <input id="cupo" type="text" class="form-control" name="cupo" value="{{ $cliente->cupo }}" required > 
                         @if ($errors->has('cupo'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('cupo') }}</strong>
@@ -127,7 +132,7 @@
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
                         <button type="submit" class="btn btn-primary">
-                            Crear
+                            Guardar Cambios
                         </button>
                     </div>
                 </div>
@@ -145,35 +150,20 @@
                             <th class="center">Depto</th>
                             <th class="center">Ciudad</th>
                             <th class="center">Cupo inicial</th>
-                            <th class="center">Cupo restante</th>
-                            <th class="center"></th>
+                            <th class="center">Cupo restante</th>                            
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse($data['clientes'] as $cliente)
-                        <tr>
-                            <td class="center">{{$cliente->nombre}}</td>
-                            <td class="center">{{$cliente->direccion}}</td>
-                            <td class="center">{{$cliente->telefono}}</td>
-                            <td class="center">{{$cliente->paises->nombre}}</td>
-                            <td class="center">{{$cliente->departamentos->nombre}}</td>
-                            <td class="center">{{$cliente->ciudades->nombre}}</td>
-                            <td class="center">{{$cliente->cupo}}</td>
-                            <td class="center">{{$cliente->cupo}}</td>
-                            <td class="center ctm-btn-td">
-                            
-                                <a class="btn btn-info btn-xs" href=" {{ route('cliente.edit', ['cliente' => $cliente->id]) }} ">
-                                    <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
-                                </a>
-                                <form action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}" method="POST" >  
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}                              
-                                    <button type="submit" class="btn btn-danger btn-xs">
-                                        <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-                                    </button>  
-                                </form>
-                                                         
-                            </td>
+                        @forelse($clientes as $cliente_v)
+                        <tr class="{{ $cliente_v->id == $cliente->id ? ' info' : '' }}">
+                            <td class="center">{{$cliente_v->nombre}}</td>
+                            <td class="center">{{$cliente_v->direccion}}</td>
+                            <td class="center">{{$cliente_v->telefono}}</td>
+                            <td class="center">{{$cliente_v->paises->nombre}}</td>
+                            <td class="center">{{$cliente_v->departamentos->nombre}}</td>
+                            <td class="center">{{$cliente_v->ciudades->nombre}}</td>
+                            <td class="center">{{$cliente_v->cupo}}</td>
+                            <td class="center">{{$cliente_v->cupo}}</td>                            
                         </tr>
                         @empty
                         @endforelse
@@ -184,6 +174,5 @@
     </div>
 </div>
 @extends('layouts.scripts') 
-
 
 @endsection

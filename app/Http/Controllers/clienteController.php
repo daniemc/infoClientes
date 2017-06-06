@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\GuardarCliente;
 use App\clientes;
 use App\paises;
+use App\departamentos;
+use App\ciudades;
 class clienteController extends Controller
 {
     public function index()
@@ -29,6 +31,33 @@ class clienteController extends Controller
         ]);
 
         return $this->redirectToIndex();
+    }
+
+    public function edit($id)
+    {
+        $cliente = clientes::find($id);
+        $pais = $cliente->paises->id;
+        $departamento = $cliente->departamentos->id;
+        $ciudad = $cliente->ciudades->id;
+
+        return view(
+                'clientes.edit',
+                [
+                    'cliente' => $cliente,
+                    'clientes' => clientes::all(),
+                    'pais_actual' => $pais,
+                    'paises' => paises::all(),
+                    'departamento_actual' => $departamento,
+                    'departamentos' => paises::find($pais)->departamentos,
+                    'ciudad_actual' => $ciudad,
+                    'ciudades' => departamentos::find($departamento)->ciudades,
+                ]
+            );
+    }
+
+    public function update()
+    {
+        
     }
 
     public function destroy($id)
