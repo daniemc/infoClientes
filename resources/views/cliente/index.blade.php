@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-4">
-        <form class="form-horizontal" role="form" method="POST" action="{{ route('cliente.create') }}">
+        <form class="form-horizontal" role="form" method="POST" action="{{ route('cliente.store') }}">
             {{ csrf_field() }}
 
             <div class="form-group{{ $errors->has('nit') ? ' has-error' : '' }}">
@@ -69,6 +69,11 @@
                         @empty
                         @endforelse
                     </select>
+                    @if ($errors->has('pais'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('pais') }}</strong>
+                        </span> 
+                    @endif
                 </div>
             </div>
 
@@ -83,6 +88,11 @@
                         @empty
                         @endforelse
                     </select>
+                    @if ($errors->has('departamento'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('departamento') }}</strong>
+                        </span> 
+                    @endif
                 </div>
             </div>
 
@@ -97,6 +107,11 @@
                         @empty
                         @endforelse
                     </select>
+                    @if ($errors->has('ciudad'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('ciudad') }}</strong>
+                        </span> 
+                    @endif
                 </div>
             </div>
 
