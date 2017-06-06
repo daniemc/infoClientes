@@ -154,9 +154,9 @@
                         <td class="center">{{$cliente->nombre}}</td>
                         <td class="center">{{$cliente->direccion}}</td>
                         <td class="center">{{$cliente->telefono}}</td>
-                        <td class="center">{{$cliente->pais}}</td>
-                        <td class="center">{{$cliente->departamento}}</td>
-                        <td class="center">{{$cliente->ciudad}}</td>
+                        <td class="center">{{$cliente->paises->nombre}}</td>
+                        <td class="center">{{$cliente->departamentos->nombre}}</td>
+                        <td class="center">{{$cliente->ciudades->nombre}}</td>
                         <td class="center">{{$cliente->cupo}}</td>
                         <td class="center">{{$cliente->cupo}}</td>
                         <td class="center"></td>
