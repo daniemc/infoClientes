@@ -8,8 +8,8 @@ class departamentos extends Model
 {
     protected $table = 'departamentos';
 
-    public function ciudad()
+    public function ciudades()
     {
-        return $this->hasMany('App\ciudad');
+        return $this->hasMany('App\ciudades');
     }
 }

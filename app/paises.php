@@ -15,6 +15,6 @@ class paises extends Model
 
     public function ciudades()
     {
-        return $this->hasManyThrough('App\departamento', 'App\ciudad');
+        return $this->hasManyThrough('App\departamentos', 'App\ciudades');
     }
 }
