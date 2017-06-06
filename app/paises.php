@@ -17,4 +17,9 @@ class paises extends Model
     {
         return $this->hasManyThrough('App\departamentos', 'App\ciudades');
     }
+
+    public function clientes()
+    {
+        return $this->hasMany('App\clientes');
+    }
 }

@@ -12,4 +12,9 @@ class departamentos extends Model
     {
         return $this->hasMany('App\ciudades');
     }
+
+    public function clientes()
+    {
+        return $this->hasMany('App\clientes');
+    }
 }
