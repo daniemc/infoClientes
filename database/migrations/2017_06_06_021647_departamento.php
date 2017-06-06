@@ -15,7 +15,7 @@ class Departamento extends Migration
     {
         Schema::create('departamentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_pais');
+            $table->integer('paises_id');
             $table->string('nombre', 50);
             $table->timestamps();
             

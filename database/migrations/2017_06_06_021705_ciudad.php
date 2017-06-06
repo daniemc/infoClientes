@@ -15,7 +15,7 @@ class Ciudad extends Migration
     {
         Schema::create('ciudades', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_departamento');
+            $table->integer('departamentos_id');
             $table->string('nombre', 50);
             $table->timestamps();
             
