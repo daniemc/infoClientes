@@ -17,5 +17,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/departamentos/{id_pais}', function($idPais){
+    return App\paises::find($idPais)->departamentos;
+});
+Route::get('/ciudades/{id_departamento}', function($idDepartamento){
+    return App\departamentos::find($idDepartamento)->ciudades;
+});
+
 Route::resource("cliente", "clienteController");
 Route::resource("usuario", "UsuarioController");
