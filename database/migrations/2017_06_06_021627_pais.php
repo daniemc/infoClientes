@@ -13,7 +13,7 @@ class Pais extends Migration
      */
     public function up()
     {
-        Schema::create('pais', function (Blueprint $table) {
+        Schema::create('paises', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 50);
             $table->timestamps();
@@ -27,6 +27,6 @@ class Pais extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pais');
+        Schema::dropIfExists('paises');
     }
 }

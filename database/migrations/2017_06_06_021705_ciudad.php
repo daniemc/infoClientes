@@ -13,7 +13,7 @@ class Ciudad extends Migration
      */
     public function up()
     {
-        Schema::create('ciudad', function (Blueprint $table) {
+        Schema::create('ciudades', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_departamento');
             $table->string('nombre', 50);
@@ -29,6 +29,6 @@ class Ciudad extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ciudad');
+        Schema::dropIfExists('ciudades');
     }
 }

@@ -13,7 +13,7 @@ class Departamento extends Migration
      */
     public function up()
     {
-        Schema::create('departamento', function (Blueprint $table) {
+        Schema::create('departamentos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_pais');
             $table->string('nombre', 50);
@@ -29,6 +29,6 @@ class Departamento extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamento');
+        Schema::dropIfExists('departamentos');
     }
 }

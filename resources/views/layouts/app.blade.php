@@ -32,7 +32,6 @@
                         @if (!Auth::guest())
                             <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
                             <li><a href="{{ route('cliente.index') }}">Clientes</a></li>
-                            <li><a href="{{ route('login') }}">Vendedores</a></li>
                         @endif
                     </ul>
 
