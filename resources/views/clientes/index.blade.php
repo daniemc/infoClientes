@@ -82,11 +82,8 @@
 
                 <div class="col-md-6">
                     <select id="departamento" name="departamento">
-                        <option value=""></option>
-                        @forelse($data['departamentos'] as $departamento)
-                        <option value="{{$departamento->id}}">{{$departamento->nombre}}</option>
-                        @empty
-                        @endforelse
+                        <option value=""></option>                       
+                        
                     </select>
                     @if ($errors->has('departamento'))
                         <span class="help-block">
@@ -102,10 +99,7 @@
                 <div class="col-md-6">
                     <select id="ciudad" name="ciudad">
                         <option value=""></option>
-                        @forelse($data['ciudades'] as $ciudad)
-                        <option value="{{$ciudad->id}}">{{$ciudad->nombre}}</option>
-                        @empty
-                        @endforelse
+                        
                     </select>
                     @if ($errors->has('ciudad'))
                         <span class="help-block">
@@ -132,12 +126,40 @@
             <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">
                     <button type="submit" class="btn btn-primary">
-                                    Crear
-                                </button>
+                        Crear
+                    </button>
                 </div>
             </div>
         </form>
     </div>
-    <div class="col-sm-8"></div>
+    <div class="col-sm-8">
+    
+    </div>
 </div>
+@extends('layouts.scripts') 
+<script>
+jQuery(function($){
+
+    $("#pais").on('change', function(e){
+        var id_pais = e.target.value;
+        $("#departamento").empty();
+        $.get('departamentos/'+id_pais, function(response){
+            $("#departamento").append("<option value='' ></option>");
+            $.each(response, function(index, value){
+                $("#departamento").append("<option value='"+value.id+"' >"+value.nombre+"</option>");
+            })
+        });        
+    });
+    $("#departamento").on('change', function(e){
+        var id_departamento = e.target.value;
+        $("#ciudad").empty();
+        $.get('ciudades/'+id_departamento, function(response){
+            $("#ciudad").append("<option value='' ></option>");
+            $.each(response, function(index, value){
+                $("#ciudad").append("<option value='"+value.id+"' >"+value.nombre+"</option>");
+            })
+        });        
+    });
+});
+</script>
 @endsection
