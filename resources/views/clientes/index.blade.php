@@ -133,7 +133,39 @@
         </form>
     </div>
     <div class="col-sm-8">
-    
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th class="center">Nombre</th>
+                        <th class="center">Dirección</th>
+                        <th class="center">Teléfono</th>
+                        <th class="center">País</th>
+                        <th class="center">Departamento</th>
+                        <th class="center">Ciudad</th>
+                        <th class="center">Cupo inicial</th>
+                        <th class="center">Cupo restante</th>
+                        <th class="center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($data['clientes'] as $cliente)
+                    <tr>
+                        <td class="center">{{$cliente->nombre}}</td>
+                        <td class="center">{{$cliente->direccion}}</td>
+                        <td class="center">{{$cliente->telefono}}</td>
+                        <td class="center">{{$cliente->pais}}</td>
+                        <td class="center">{{$cliente->departamento}}</td>
+                        <td class="center">{{$cliente->ciudad}}</td>
+                        <td class="center">{{$cliente->cupo}}</td>
+                        <td class="center">{{$cliente->cupo}}</td>
+                        <td class="center"></td>
+                    </tr>
+                    @empty
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @extends('layouts.scripts') 

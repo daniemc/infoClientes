@@ -11,7 +11,7 @@ class clienteController extends Controller
     public function index()
     {
         $data['paises'] = paises::all();
-        
+        $data['clientes'] = clientes::all();
         return view('clientes.index')->with('data', $data);
     }    
 
@@ -33,7 +33,6 @@ class clienteController extends Controller
 
     public function show()
     {
-        $clientes = clientes::all();
-        return view('clientes.show');   
+        return $this->index();  
     }
 }
