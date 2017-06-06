@@ -19,9 +19,9 @@ class Cliente extends Migration
             $table->string('nombre', 100);
             $table->string('direccion', 50);
             $table->string('telefono', 15);
-            $table->integer('pais');
-            $table->integer('departamento');
-            $table->integer('ciudad');
+            $table->integer('paises_id');
+            $table->integer('departamentos_id');
+            $table->integer('ciudades_id');
             $table->double('cupo');
             $table->timestamps();
         });
