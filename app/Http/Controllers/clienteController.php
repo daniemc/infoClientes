@@ -22,17 +22,14 @@ class clienteController extends Controller
             'nombre' => $form->nombre,
             'direccion' => $form->direccion,
             'telefono' => $form->telefono,
-            'pais' => $form->pais,
-            'departamento' => $form->departamento,
-            'ciudad' => $form->ciudad,
+            'paises_id' => $form->pais,
+            'departamentos_id' => $form->departamento,
+            'ciudades_id' => $form->ciudad,
             'cupo' => $form->cupo,
         ]);
 
-        return $this->index();
+        return redirect()->route('cliente.index');
     }
 
-    public function show()
-    {
-        return $this->index();  
-    }
+    
 }
