@@ -40,4 +40,9 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public static function Vendedores()
+    {
+        return self::where('vendedor', 1)->get();
+    }
 }
