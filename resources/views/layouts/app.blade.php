@@ -34,7 +34,9 @@
                         @if (!Auth::guest())
                             <li><a href="{{ route('user.index') }}">Usuarios</a></li>
                             <li><a href="{{ route('cliente.index') }}">Clientes</a></li>
+                            @if(Auth::user()->esVendedor())
                             <li><a href="{{ route('visita.index') }}">Registrar visita</a></li>
+                            @endif
                         @endif
                     </ul>
 

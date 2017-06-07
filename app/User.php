@@ -32,4 +32,12 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\visitas');
     }
+
+    public function esVendedor()
+    {
+        if($this->vendedor == 1){
+            return true;
+        }
+        return false;
+    }
 }
