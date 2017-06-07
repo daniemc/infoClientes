@@ -74,9 +74,9 @@
 
                     <div class="col-md-6">
                         <select id="cliente" name="cliente">
-                            <option value=""></option>
+                            <option value="0" data-porcentaje='0'></option>
                             @forelse(App\clientes::All() as $cliente)
-                            <option value="{{$cliente->id}}">{{$cliente->nombre}}</option>
+                            <option value="{{$cliente->id}}" data-porcentaje="{{$cliente->porcentaje}}">{{$cliente->nombre}}</option>
                             @empty
                             @endforelse
                         </select>

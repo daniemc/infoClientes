@@ -28,4 +28,22 @@ jQuery(function($){
         format: 'yyyy-mm-dd'
     });
 
+    $("#valor_neto").on('keyup', function(e){
+        var porcentaje = parseInt($("#cliente :selected").data('porcentaje'));
+        var valor_neto = $.trim($(this).val()) == '' ? '0' : parseInt($(this).val());
+        calcularValorVisita(valor_neto, porcentaje);
+    });
+
+    $("#cliente").on('change', function(e){
+        var porcentaje = parseInt($("#cliente :selected").data('porcentaje'));
+        var valor_neto = $.trim($("#valor_neto").val()) == '' ? '0' : parseInt($("#valor_neto").val());
+        calcularValorVisita(valor_neto, porcentaje);
+    });
+
+    function calcularValorVisita(valor_neto, porcentaje)
+    {
+        console.log(porcentaje);
+        $("#valor_visita").val(parseInt(valor_neto)*parseFloat(porcentaje/100));
+    }
+
 });
