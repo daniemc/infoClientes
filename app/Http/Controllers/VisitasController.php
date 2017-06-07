@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\visitas;
 use Illuminate\Http\Request;
+use App\Http\Requests\GuardarVisita;
 
 class VisitasController extends Controller
 {
@@ -33,9 +34,9 @@ class VisitasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GuardarVisita $form)
     {
-        //
+        
     }
 
     /**
