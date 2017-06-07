@@ -114,7 +114,7 @@
                     <label for="cupo" class="col-md-4 control-label">Cupo inicial</label>
 
                     <div class="col-md-6">
-                        <input id="cupo" type="text" class="form-control" name="cupo" value="{{ old('cupo') }}" required > 
+                        <input id="cupo" type="number" class="form-control" name="cupo" value="{{ old('cupo') }}" required > 
                         @if ($errors->has('cupo'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('cupo') }}</strong>
@@ -162,10 +162,10 @@
                             <td class="center">{{$cliente->cupo}}</td>
                             <td class="center ctm-btn-td">
                             
+                                <form action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}" method="POST" >  
                                 <a class="btn btn-info btn-xs" href=" {{ route('cliente.edit', ['cliente' => $cliente->id]) }} ">
                                     <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
                                 </a>
-                                <form action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}" method="POST" >  
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}                              
                                     <button type="submit" class="btn btn-danger btn-xs">

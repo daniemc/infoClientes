@@ -122,7 +122,7 @@
                     <label for="cupo" class="col-md-4 control-label">Cupo inicial</label>
 
                     <div class="col-md-6">
-                        <input id="cupo" type="text" class="form-control" name="cupo" value="{{ $cliente->cupo }}" required > 
+                        <input id="cupo" type="number" class="form-control" name="cupo" value="{{ $cliente->cupo }}" required > 
                         @if ($errors->has('cupo'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('cupo') }}</strong>
