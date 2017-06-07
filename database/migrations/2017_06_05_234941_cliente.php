@@ -15,7 +15,7 @@ class Cliente extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nit', 200);
+            $table->string('nit', 2000);
             $table->string('nombre', 100);
             $table->string('direccion', 50);
             $table->string('telefono', 15);
