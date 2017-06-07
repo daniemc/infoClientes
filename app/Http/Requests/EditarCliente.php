@@ -13,7 +13,7 @@ class EditarCliente extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class EditarCliente extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|string|max:100',
+            'direccion' => 'required|string|max:50',
+            'telefono' => 'required|string|max:15',
+            'pais' => 'required|integer',
+            'departamento' => 'required|integer',
+            'ciudad' => 'required|integer',
+            'cupo' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Este campo es requerido.',
+            'max' => 'El campo :attribute puede tener maxímo :max caracteres.'
         ];
     }
 }
