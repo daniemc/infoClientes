@@ -18,6 +18,7 @@ class Visitas extends Migration
             $table->integer('user_id');
             $table->integer('clientes_id');
             $table->double('valor_neto');
+            $table->date('fecha');
             $table->double('valor_visita');
             $table->string('observaciones', 500);
             $table->timestamps();
