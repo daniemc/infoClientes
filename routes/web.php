@@ -25,5 +25,5 @@ Route::get('/ciudades/{id_departamento}', function($idDepartamento){
 });
 
 Route::resource("cliente", "clienteController");
-Route::resource("usuario", "UsuarioController");
+Route::resource("user", "UserController");
 Route::resource("visita", "VisitasController");

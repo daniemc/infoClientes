@@ -31,7 +31,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @if (!Auth::guest())
-                            <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
+                            <li><a href="{{ route('user.index') }}">Usuarios</a></li>
                             <li><a href="{{ route('cliente.index') }}">Clientes</a></li>
                         @endif
                     </ul>
