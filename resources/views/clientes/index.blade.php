@@ -197,7 +197,5 @@
         </div>
     </div>
 </div>
-@extends('layouts.scripts') 
-
 
 @endsection

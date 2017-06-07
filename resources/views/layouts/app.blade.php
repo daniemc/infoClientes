@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@extends('layouts.scripts') 
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -33,6 +34,7 @@
                         @if (!Auth::guest())
                             <li><a href="{{ route('user.index') }}">Usuarios</a></li>
                             <li><a href="{{ route('cliente.index') }}">Clientes</a></li>
+                            <li><a href="{{ route('visita.index') }}">Registrar visita</a></li>
                         @endif
                     </ul>
 

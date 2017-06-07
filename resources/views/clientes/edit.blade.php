@@ -190,7 +190,6 @@
             </div>
         </div>
     </div>
-</div>
-@extends('layouts.scripts') 
+</div> 
 
 @endsection
