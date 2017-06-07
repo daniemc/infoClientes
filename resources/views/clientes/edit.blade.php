@@ -179,8 +179,8 @@
                             <td class="center">{{$cliente_v->paises->nombre}}</td>
                             <td class="center">{{$cliente_v->departamentos->nombre}}</td>
                             <td class="center">{{$cliente_v->ciudades->nombre}}</td>
-                            <td class="center">{{$cliente_v->cupo}}</td>
-                            <td class="center">{{$cliente_v->cupo}}</td>   
+                            <td class="center">{{number_format($cliente_v->cupo)}}</td>
+                            <td class="center">{{number_format($cliente_v->cupoRestante())}}</td>  
                             <td class="center">{{$cliente->porcentaje}}%</td>                         
                         </tr>
                         @empty
