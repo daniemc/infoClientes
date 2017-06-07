@@ -21,7 +21,7 @@ class clienteController extends Controller
     public function store(GuardarCliente $form)
     {
         clientes::create([
-            'nit' => bcrypt($form->nit),
+            'nit' => encrypt($form->nit),
             'nombre' => $form->nombre,
             'direccion' => $form->direccion,
             'telefono' => $form->telefono,
@@ -60,6 +60,7 @@ class clienteController extends Controller
     {        
         clientes::where('id', $id)
                 ->update([
+                    'nit' => encrypt($form->nit),
                     'nombre' => $form->nombre,
                     'direccion' => $form->direccion,
                     'telefono' => $form->telefono,

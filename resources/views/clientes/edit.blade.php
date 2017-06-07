@@ -10,6 +10,19 @@
                 <input type="hidden" name='id' value="{{$cliente->id}}"> 
                 
 
+                <div class="form-group{{ $errors->has('nit') ? ' has-error' : '' }}">
+                    <label for="nit" class="col-md-4 control-label">Nit</label>
+
+                    <div class="col-md-6">
+                        <input id="nit" type="text" class="form-control" name="nit" value="{{ decrypt($cliente->nit) }}" required autofocus> 
+                        @if ($errors->has('nit'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('nit') }}</strong>
+                            </span> 
+                        @endif
+                    </div>
+                </div>
+
                 <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
                     <label for="nombre" class="col-md-4 control-label">Nombre Completo</label>
 
