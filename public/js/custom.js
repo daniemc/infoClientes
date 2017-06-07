@@ -24,4 +24,8 @@ jQuery(function($){
         });        
     });
 
+    $("input[name='fecha']").datepicker({
+        format: 'yyyy-mm-dd'
+    });
+
 });

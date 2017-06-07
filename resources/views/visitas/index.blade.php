@@ -39,7 +39,7 @@
                         <label for="fecha" class="col-md-4 control-label">Fecha visita</label>
 
                         <div class="col-md-6">
-                            <input id="fecha" type="text" class="form-control" name="fecha" value="{{ date('Y-m-d') }}" readonly> 
+                            <input id="fecha" type="text" class="form-control" name="fecha" value="{{ date('Y-m-d') }}"> 
                             @if ($errors->has('fecha'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('fecha') }}</strong>
