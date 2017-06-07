@@ -36,51 +36,20 @@ class VisitasController extends Controller
      */
     public function store(GuardarVisita $form)
     {
-        
+        visitas::create([
+            'fecha' => $form->fecha,
+            'user_id' => $form->user_id,
+            'clientes_id' => $form->cliente,
+            'valor_neto' => $form->valor_neto,
+            'valor_visita' => $form->valor_visita,
+            'observaciones' => $form->observaciones,
+        ]);
+
+        return $this->redirectToIndex(true);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\visitas  $visitas
-     * @return \Illuminate\Http\Response
-     */
-    public function show(visitas $visitas)
+    protected function redirectToIndex($ok = null)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\visitas  $visitas
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(visitas $visitas)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\visitas  $visitas
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, visitas $visitas)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\visitas  $visitas
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(visitas $visitas)
-    {
-        //
+        return redirect()->route('visita.index', ['ok' => $ok]);
     }
 }

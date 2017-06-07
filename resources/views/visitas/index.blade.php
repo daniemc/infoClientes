@@ -39,7 +39,7 @@
                         <label for="fecha" class="col-md-4 control-label">Fecha visita</label>
 
                         <div class="col-md-6">
-                            <input id="fecha" type="text" class="form-control" name="fecha" value="{{ date('Y-m-d') }}"> 
+                            <input id="fecha" type="text" class="form-control" name="fecha" value="{{ date('Y-m-d') }}" readonly> 
                             @if ($errors->has('fecha'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('fecha') }}</strong>
@@ -134,6 +134,16 @@
                         </button>
                     </div>
                 </div>
+                @if(isset($_GET['ok']))
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-4">
+                            <div class="alert alert-success" role="alert">
+                                <strong>Bien!</strong>
+                                Visita guardada correctamente.
+                            </div>
+                        </div>
+                    </div>                    
+                @endif
             </form>
         </div>
     </div>
