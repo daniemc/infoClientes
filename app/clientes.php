@@ -29,4 +29,9 @@ class clientes extends Model
         return $this->hasMany('App\visitas');
     }
 
+    public function cupoRestante()
+    {
+        return  $this->cupo - $this->visitas()->sum('valor_visita');
+    }
+
 }
