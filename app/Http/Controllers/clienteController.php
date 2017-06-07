@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\GuardarCliente;
+use App\Http\Requests\EditarCliente;
 use App\clientes;
 use App\paises;
 use App\departamentos;
@@ -55,9 +56,19 @@ class clienteController extends Controller
             );
     }
 
-    public function update()
-    {
-        
+    public function update(EditarCliente $form, $id)
+    {        
+        clientes::where('id', $id)
+                ->update([
+                    'nombre' => $form->nombre,
+                    'direccion' => $form->direccion,
+                    'telefono' => $form->telefono,
+                    'paises_id' => $form->pais,
+                    'departamentos_id' => $form->departamento,
+                    'ciudades_id' => $form->ciudad,
+                    'cupo' => $form->cupo,
+                ]);
+        return $this->redirectToIndex();
     }
 
     public function destroy($id)
