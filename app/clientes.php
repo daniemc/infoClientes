@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class clientes extends Model
 {
     protected $table = 'clientes';
-    protected $fillable = ['nit', 'nombre', 'direccion', 'telefono', 'paises_id', 'departamentos_id', 'ciudades_id', 'cupo'];
+    protected $fillable = ['nit', 'nombre', 'direccion', 'telefono', 'paises_id', 'departamentos_id', 'ciudades_id', 'cupo', 'porcentaje'];
 
     public function paises()
     {

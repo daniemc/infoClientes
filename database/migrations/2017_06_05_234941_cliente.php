@@ -23,6 +23,7 @@ class Cliente extends Migration
             $table->integer('departamentos_id');
             $table->integer('ciudades_id');
             $table->double('cupo');
+            $table->integer('porcentaje');
             $table->timestamps();
         });
     }

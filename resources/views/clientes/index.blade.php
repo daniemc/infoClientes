@@ -123,6 +123,18 @@
                     </div>
                 </div>
 
+                <div class="form-group{{ $errors->has('porcentaje') ? ' has-error' : '' }}">
+                    <label for="porcentaje" class="col-md-4 control-label">Porcentaje visitas</label>
+
+                    <div class="col-md-6">
+                        <input id="porcentaje" type="number" class="form-control" name="porcentaje" value="{{ old('porcentaje') }}" required >
+                        @if ($errors->has('porcentaje'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('porcentaje') }}</strong>
+                            </span> 
+                        @endif
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
@@ -146,6 +158,7 @@
                             <th class="center">Ciudad</th>
                             <th class="center">Cupo inicial</th>
                             <th class="center">Cupo restante</th>
+                            <th class="center">Porc. visitas</th>
                             <th class="center"></th>
                         </tr>
                     </thead>
@@ -160,6 +173,7 @@
                             <td class="center">{{$cliente->ciudades->nombre}}</td>
                             <td class="center">{{$cliente->cupo}}</td>
                             <td class="center">{{$cliente->cupo}}</td>
+                            <td class="center">{{$cliente->porcentaje}}%</td>
                             <td class="center ctm-btn-td">
                             
                                 <form action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}" method="POST" >  

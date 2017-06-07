@@ -29,6 +29,7 @@ class clienteController extends Controller
             'departamentos_id' => $form->departamento,
             'ciudades_id' => $form->ciudad,
             'cupo' => $form->cupo,
+            'porcentaje' => $form->porcentaje,
         ]);
 
         return $this->redirectToIndex();
@@ -68,6 +69,7 @@ class clienteController extends Controller
                     'departamentos_id' => $form->departamento,
                     'ciudades_id' => $form->ciudad,
                     'cupo' => $form->cupo,
+                    'porcentaje' => $form->porcentaje,
                 ]);
         return $this->redirectToIndex();
     }
