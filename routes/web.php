@@ -24,6 +24,8 @@ Route::get('/ciudades/{id_departamento}', function($idDepartamento){
     return App\departamentos::find($idDepartamento)->ciudades;
 });
 
+Route::get('informes', 'InformesController@index')->name('informes');
+
 Route::resource("cliente", "clienteController");
 Route::resource("user", "UserController");
 Route::resource("visita", "VisitasController");
