@@ -36,6 +36,7 @@
                             <li><a href="{{ route('user.index') }}">Usuarios</a></li>
                             <li><a href="{{ route('cliente.index') }}">Clientes</a></li>
                             <li><a href="{{ route('visita.index') }}">Registrar visita</a></li>
+                            <li><a href="{{ route('informes') }}">Informes</a></li>
                         @endif
                     </ul>
 
