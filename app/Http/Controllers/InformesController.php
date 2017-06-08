@@ -27,4 +27,27 @@ class InformesController extends Controller
 
         return view('informes.general', ['visitas_por_ciudad' => $visitas_por_ciudad]);
     }
+
+    public function informeCliente($id)
+    {
+        $datos = DB::table('visitas')
+            ->join('clientes', 'clientes.id', '=', 'visitas.clientes_id')
+            ->where('clientes.id', $id)
+            ->select(DB::raw('visitas.fecha, clientes.cupo, clientes.cupo - (select sum(v.valor_visita) 
+                             from visitas v where v.clientes_id = clientes.id and v.id <= visitas.id) as cupo_a_fecha'))
+            ->get();
+
+        $chart = Charts::create('line', 'material')
+            ->title('Historia')
+            ->template("material")
+            ->elementLabel("Cupo en fecha")
+            ->labels($datos->pluck('fecha')->prepend('Inicial'))
+            ->values($datos->pluck('cupo_a_fecha')->prepend($datos[0]->cupo))
+            ->responsive(false);
+
+        return view('clientes.visitas', [
+            'datos' => $datos,
+            'chart' => $chart
+        ]);
+    }
 }

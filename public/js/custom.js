@@ -12,6 +12,7 @@ jQuery(function($){
             })
         });        
     });
+
     $("#departamento").on('change', function(e){
         var id_departamento = e.target.value;
         var url = $(this).data('url');
@@ -22,6 +23,14 @@ jQuery(function($){
                 $("#ciudad").append("<option value='"+value.id+"' >"+value.nombre+"</option>");
             })
         });        
+    });
+
+    $("a[name='visitas_cliente']").on('click', function(e){
+        e.preventDefault();
+        $("#cargar_visitas").empty();
+        var cliente = $(this).data('cliente');
+        var url = $(this).data('url').replace("{id}", cliente);
+        $("#cargar_visitas").load(url);
     });
 
     $("input[name='fecha']").datepicker({

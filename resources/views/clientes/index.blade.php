@@ -188,6 +188,11 @@
                                 </form>
                                                          
                             </td>
+                            <td>
+                                <a name="visitas_cliente" data-cliente="{{$cliente->id}}" data-url="{{ url('cliente/{id}/informe') }}" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#visitas">
+                                    <i class="glyphicon glyphicon-signal" aria-hidden="true"></i>
+                                </a>
+                            </td>
                         </tr>
                         @empty
                         @endforelse
@@ -199,3 +204,18 @@
 </div>
 
 @endsection
+{!! Charts::assets() !!}
+<!-- Modal -->
+<div class="modal fade" id="visitas" tabindex="-1" role="dialog" aria-labelledby="visitasLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="visitasLabel">Visitas cliente</h4>
+      </div>
+      <div id="cargar_visitas" class="modal-body">
+
+      </div>      
+    </div>
+  </div>
+</div>
