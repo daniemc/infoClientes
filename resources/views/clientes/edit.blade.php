@@ -66,7 +66,7 @@
                     <label for="pais" class="col-md-4 control-label">País</label>
 
                     <div class="col-md-6">
-                        <select id="pais" name="pais" data-url="{{ url('departamentos') }}">
+                        <select id="pais" name="pais" class="form-control" data-url="{{ url('departamentos') }}">
                             
                             @forelse($paises as $pais)
                             <option value="{{$pais->id}}" {{ $pais->id == $pais_actual ? ' selected' : '' }} >{{$pais->nombre}}</option>
@@ -85,7 +85,7 @@
                     <label for="departamento" class="col-md-4 control-label">Departamento</label>
 
                     <div class="col-md-6">
-                        <select id="departamento" name="departamento" data-url="{{ url('ciudades') }}">
+                        <select id="departamento" name="departamento" class="form-control" data-url="{{ url('ciudades') }}">
                              @forelse($departamentos as $departamento)
                                 <option value="{{$departamento->id}}" {{ $departamento->id == $departamento_actual ? ' selected' : '' }} >{{$departamento->nombre}}</option>
                              @empty
@@ -103,7 +103,7 @@
                     <label for="ciudad" class="col-md-4 control-label">Ciudad</label>
 
                     <div class="col-md-6">
-                        <select id="ciudad" name="ciudad">
+                        <select id="ciudad" name="ciudad" class="form-control" >
                             @forelse($ciudades as $ciudad)
                                 <option value="{{$ciudad->id}}" {{ $ciudad->id == $ciudad_actual ? ' selected' : '' }} >{{$ciudad->nombre}}</option>
                              @empty

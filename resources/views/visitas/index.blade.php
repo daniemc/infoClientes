@@ -52,7 +52,7 @@
                         <label for="nombre_usuario" class="col-md-4 control-label">Vendedor</label>
 
                         <div class="col-md-6">
-                            <select id="user_id" name="user_id">
+                            <select id="user_id" name="user_id" class="form-control">
                                 <option value=""></option>
                                 @forelse(App\User::Vendedores() as $vendedor)
                                 <option value="{{$vendedor->id}}">{{$vendedor->name}}</option>
@@ -73,7 +73,7 @@
                     <label for="cliente" class="col-md-4 control-label">Cliente</label>
 
                     <div class="col-md-6">
-                        <select id="cliente" name="cliente">
+                        <select id="cliente" name="cliente" class="form-control">
                             <option value="0" data-porcentaje='0'></option>
                             @forelse(App\clientes::All() as $cliente)
                             <option value="{{$cliente->id}}" data-porcentaje="{{$cliente->porcentaje}}">{{$cliente->nombre}}</option>
