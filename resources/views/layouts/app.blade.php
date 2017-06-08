@@ -22,11 +22,15 @@
         <nav class="navbar navbar-default navbar-static-top navbar-inverse">
             <div class="container">
                 <div class="navbar-header center">
-                    
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        <span class="glyphicon glyphicon-info-sign white" ></span>
-                        
+                    <a class="navbar-brand" href="{{ url('/') }}">                        
+                        <span class="glyphicon glyphicon-info-sign white" ></span>                        
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
