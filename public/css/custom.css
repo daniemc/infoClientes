@@ -9,3 +9,7 @@ table > tbody{
     width: 10%;
     text-align: center;
 }
+
+.modal-full-width{
+    width: 100% !important;
+}
