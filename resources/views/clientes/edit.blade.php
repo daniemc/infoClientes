@@ -132,7 +132,7 @@
                 </div>
                 
                 <div class="form-group{{ $errors->has('porcentaje') ? ' has-error' : '' }}">
-                    <label for="porcentaje" class="col-md-4 control-label">porcentaje inicial</label>
+                    <label for="porcentaje" class="col-md-4 control-label">Porcentaje visitas</label>
 
                     <div class="col-md-6">
                         <input id="porcentaje" type="number" class="form-control" name="porcentaje" value="{{ $cliente->porcentaje }}" required > 
