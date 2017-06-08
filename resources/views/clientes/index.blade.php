@@ -177,19 +177,22 @@
                             <td class="center ctm-btn-td">
                             
                                 <form action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}" method="POST" >  
-                                <a class="btn btn-info btn-xs" href=" {{ route('cliente.edit', ['cliente' => $cliente->id]) }} ">
+                                <a class="btn btn-info btn-xs" href=" {{ route('cliente.edit', ['cliente' => $cliente->id]) }} "
+                                    data-toggle="tooltip" title="Editar">
                                     <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
                                 </a>
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}                              
-                                    <button type="submit" class="btn btn-danger btn-xs">
+                                    <button type="submit" class="btn btn-danger btn-xs"
+                                        data-toggle="tooltip" title="Eliminar">
                                         <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
                                     </button>  
                                 </form>
                                                          
                             </td>
                             <td>
-                                <a name="visitas_cliente" data-cliente="{{$cliente->id}}" data-url="{{ url('cliente/{id}/informe') }}" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#visitas">
+                                <a name="visitas_cliente" data-cliente="{{$cliente->id}}" data-url="{{ url('cliente/{id}/informe') }}" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#visitas"
+                                        data-toggle="tooltip" title="Ver visitas">
                                     <i class="glyphicon glyphicon-signal" aria-hidden="true"></i>
                                 </a>
                             </td>
