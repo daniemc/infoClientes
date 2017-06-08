@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            {!! $chart->render() !!}
+            {!! $visitas_por_ciudad->render() !!}
         </div>
     </div>
 </div>

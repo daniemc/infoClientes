@@ -18,14 +18,13 @@ class InformesController extends Controller
             ->select(DB::raw('ciudades.id, ciudades.nombre, count(*) as visitas'))
             ->get();
 
-        $chart = Charts::create('bar', 'material')
+        $visitas_por_ciudad = Charts::create('bar', 'material')
             ->title('Visitas por ciudad')
             ->template("material")
             ->elementLabel("Visitas")
             ->labels($datos->pluck('nombre'))
-            ->values($datos->pluck('visitas'))
-            ->responsive(true);
+            ->values($datos->pluck('visitas'));
 
-        return view('informes.general', ['chart' => $chart]);
+        return view('informes.general', ['visitas_por_ciudad' => $visitas_por_ciudad]);
     }
 }
