@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 
 @section('content')
-<div class="container"> 
+<div class="container-fluid"> 
     <div class="row">
         <div class="col-sm-4">
             <form class="form-horizontal" role="form" method="POST" action="{{ route('cliente.store') }}">
@@ -159,7 +159,7 @@
                             <th class="center">Cupo inicial</th>
                             <th class="center">Cupo restante</th>
                             <th class="center">Porc. visitas</th>
-                            <th class="center"></th>
+                            <th class="center" colspan="2"></th>
                         </tr>
                     </thead>
                     <tbody>

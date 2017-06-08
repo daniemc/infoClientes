@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 
 @section('content')
-<div class="container"> 
+<div class="container-fluid"> 
     <div class="row">
         <div class="col-sm-4">
             <form class="form-horizontal" role="form" method="POST" action="{{ route('cliente.update', ['cliente' => $cliente]) }}">
